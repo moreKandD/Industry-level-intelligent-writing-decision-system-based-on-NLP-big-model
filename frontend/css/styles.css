@@ -1,0 +1,253 @@
+/* 基础样式 */
+:root {
+    --primary-color: #3498db;
+    --success-color: #2ecc71;
+    --warning-color: #f1c40f;
+    --error-color: #e74c3c;
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+  }
+  
+  body {
+    font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    min-height: 100vh;
+    padding: 2rem;
+    margin: 0;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  
+  /* 主容器 */
+  .container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 1.5rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+  }
+  
+  /* 修改输入区域样式 */
+.input-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;  /* 增加间距 */
+    margin-bottom: 2.5rem;
+    padding: 1rem;  /* 添加容器内边距 */
+}
+
+.input-box {
+    width: 100%;
+    padding: 1.5rem;  /* 增加内边距 */
+    border: 2px solid var(--primary-color);
+    border-radius: 1rem;  /* 增大圆角 */
+    font-size: 1rem;
+    min-height: 180px;  /* 增加最小高度 */
+    resize: vertical;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.9);  /* 添加背景透明度 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);  /* 添加阴影 */
+}
+
+/* 聚焦态动画 */
+  .input-box:focus {
+    border-color: #2980b9;
+    outline: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+  }
+
+  /* hover效果 */
+.input-box:hover:not(:focus) {
+    border-color: #2980b9;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+  
+  /* 参数设置 */
+  .params {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .param-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .param-item label {
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  /* 按钮样式 */
+  .button-container {
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  .generate-btn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #2980b9 100%);
+    color: white;
+    padding: 1.2rem 3rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .generate-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* 进度指示器 */
+  .progress-container {
+    position: relative;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  #step-indicator {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .step {
+    flex: 1;
+    text-align: center;
+    padding: 1.2rem;
+    background: #fff;
+    border-radius: 0.8rem;
+    transition: all 0.3s ease;
+    border: 2px solid #e0e0e0;
+  }
+  
+  .step.active {
+    border-color: var(--primary-color);
+    background: #e3f2fd;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+  }
+  
+  .step.done {
+    border-color: var(--success-color);
+    background: #e8f5e9;
+  }
+  
+  .step-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 50%;
+    background: #eee;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .step.active .step-icon {
+    background: var(--primary-color);
+    color: white;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .step.done .step-icon {
+    background: var(--success-color);
+    color: white;
+  }
+  
+  /* 进度条样式 */
+  #progress-bar {
+    height: 1rem;
+    background: #eee;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  #progress-bar div {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-color) 0%, #2980b9 100%);
+    transition: width 0.5s ease, background 0.3s ease;
+    border-radius: 0.5rem;
+  }
+  
+  /* 消息提示 */
+  .message {
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    animation: slideIn 0.3s ease;
+  }
+  
+  .message.error {
+    background: #fdecea;
+    border: 2px solid var(--error-color);
+    color: var(--error-color);
+  }
+  
+  .message.success {
+    background: #edf7ed;
+    border: 2px solid var(--success-color);
+    color: var(--success-color);
+  }
+  
+  .message.loading {
+    background: #e3f2fd;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  
+  /* 动画 */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 响应式设计 */
+  @media (max-width: 768px) {
+    #output {
+        padding: 1rem;
+        min-height: 150px;
+        font-size: 0.9rem;
+    }
+}
+
+    .input-box {
+        min-height: 150px;
+        padding: 1.2rem;
+    }

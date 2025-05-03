@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>墨写云创 - 智能写作决策系统</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>墨写云创 NLP智能写作系统</h1>
+        </div>
+        
+        <div class="input-area">
+            <textarea id="theme" class="input-box" placeholder="请输入您的创作主题或关键词..."></textarea>
+            <textarea id="material" class="input-box" placeholder="参考素材/背景信息..."></textarea>
+        </div>
+
+        <div class="params">
+            <div class="param-item">
+                <label>生成长度：</label>
+                <select id="length">
+                    <option>简洁模式</option>
+                    <option>标准模式</option>
+                    <option>详细模式</option>
+                </select>
+            </div>
+            <div class="param-item">
+                <label>创意指数：</label>
+                <input id="creativity" type="range" min="0" max="10" value="5">
+            </div>
+            <div class="param-item">
+                <label>行业领域：</label>
+                <select id="industry">
+                    <option>市场营销</option>
+                    <option>技术文档</option>
+                    <option>新闻稿件</option>
+                </select>
+            </div>
+        </div>
+
+<div class="button-container">
+    <button class="generate-btn">AI智能生成</button>
+    <button id="download-btn" class="generate-btn" disabled 
+            style="background: #2ecc71;margin-left: 20px;">
+        下载文档
+    </button>
+</div>
+
+        <div class="result-area">
+            <h3>生成结果：</h3>
+            <div id="output" class="input-box" style="min-height: 250px"></div>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
