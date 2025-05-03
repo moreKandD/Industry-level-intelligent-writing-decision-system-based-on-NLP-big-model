@@ -1,0 +1,45 @@
+# API 配置
+deepseek:
+  api:
+    key: sk-cdb962cfdac744b1873ad91c48518655
+    url: https://api.deepseek.com/v1/chat/completions
+    model: deepseek-chat
+
+tavily:
+  api:
+    key: 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
+
+# 文件输出配置
+app:
+  file:
+    output-dir: D:/data/myapp/files  # 留空则使用系统临时目录
+
+server:
+  port: 8080
+
+# 线程池配置
+spring:
+  task:
+    execution:
+      pool:
+        core-size: 5
+        max-size: 10
+        queue-capacity: 1000
+
+# 新增研究相关配置
+research:
+  settings:
+    max_parallel: 5       # 最大并行章节数
+    min_search_results: 3 # 每个章节最小搜索结果
+    timeout_seconds: 300  # 总研究超时时间
+    retry_policy:
+      max_attempts: 3
+      backoff_ms: 1000
+  retry:
+    max_attempts: 3
+    backoff_ms: 1000
+  concurrency:
+    max-parallelism: 8    # 最大并发数
+    research-retries: 3   # 研究阶段重试次数
+    refine-retries: 2     # 优化阶段重试次数
+    base-delay-ms: 1000   # 基础延迟时间
